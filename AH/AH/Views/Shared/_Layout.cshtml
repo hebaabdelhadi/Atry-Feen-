@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Atry Feen??</title>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-danger">
+
+        <a class="navbar-brand" href="#">
+            <img src="~/Content/Image/ttlogo.jfif" alt="Atry Feen??" title="Atry Feen??" style="color:white;width:3.5rem;height:2.2rem;">&nbsp; &nbsp;
+        </a>
+
+        <ul class="navbar-nav">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item"><a href="/Home/Index" style="color:white" class="nav-link">Home &nbsp; &nbsp;</a></li>
+                <li class="nav-item"><a href="/ActualPlace/Answer" style="color:white" class="nav-link">Answer &nbsp; &nbsp;</a></li>
+                <li class="nav-item"><a href="/ActualPlace/Search" style="color:white" class="nav-link">Search &nbsp; &nbsp;</a></li>
+                <text>
+
+                    @if (User.IsInRole("Admins"))
+
+                    {
+                        <li class="nav-item"><a href="/Train/ShowTrains" style="color:white" class="nav-link">Trains &nbsp; &nbsp;</a></li>
+                        <li class="nav-item"><a href="/Station/ShowStations" style="color:white" class="nav-link">Stations &nbsp; &nbsp;</a></li>
+                        <li class="nav-item"><a href="/Type/showTypes" style="color:white" class="nav-link">Types &nbsp; &nbsp;</a></li>
+                        <li class="nav-item"><a href="/Direction/ShowDirections" style="color:white" class="nav-link">Directions &nbsp; &nbsp;</a></li>
+                    }
+
+                </text>
+
+            }
+
+            @Html.Partial("_LoginPartial")
+        </ul>
+
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Atry Feen ?</p>
+        </footer>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

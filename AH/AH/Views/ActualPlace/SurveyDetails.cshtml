@@ -1,0 +1,70 @@
+﻿
+@model IEnumerable<AH.Models.SurveyDetailViewModel>
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SurveyDetails</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url('/Content/Image/117.jpg');
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        td, th {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class=" w-100 mx-auto mt-5 ">
+                <div class="col-lg-12">
+                    <div class="text-white text-center p-1" style="background-color:rgba(220, 20, 60, 0.664);border-radius: 10px;">
+                        <h2>More Details about this train</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="table-responsive w-100 border border-danger mx-auto" style="border-radius: 10px; background-color:white;font-size:1.2rem;">
+
+                        <table class="table table-hover table-condensed">
+                            <thead style="background-color:rgba(228, 147, 147, 0.6);">
+                                <tr>
+                                    <th>Person Name</th>
+                                    <th>Person Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var m in Model)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(i => m.Name)</td>
+                                        <td><a href="#"class="text-decoration-none">@Html.DisplayFor(i => m.Phone)</a></td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<AH.Models.Station>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowStations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url('/Content/Image/118.jpg');
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        td, th {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class=" w-75 mx-auto mt-5 ">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="d-flex p-3 text-center mx-auto" style=" width:96%;background-color:rgba(114, 64, 74, 0.664);border-radius: 10px;">
+                            <div class="col-lg-6">
+                                <h2 class="text-white">Manage stations</h2>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="AddStation" class="btn btn-success" style="font-size:1.2rem">Add station</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="table-responsive w-100 border border-danger " style="border-radius: 10px; background-color:white;font-size:1.2rem;">
+
+                        <table class="table table-hover table-condensed">
+                            <thead style="background-color:rgb(99, 202, 228);">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Station Name</th>
+                                    <th colspan="2">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var station in Model)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(i => station.ID)</td>
+                                        <td>@Html.DisplayFor(i => station.Name)</td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "EditStation", new { StationId = station.ID }, new { @class = "btn btn-warning" })
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Delete", "DeleteStation", new { StationId = station.ID }, new { @class = "btn btn-danger" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

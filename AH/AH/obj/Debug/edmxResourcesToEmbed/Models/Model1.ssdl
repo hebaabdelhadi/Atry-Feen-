@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="trainYallaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="RealArrivedTimeOfTrain">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="TrainID" Type="int" Nullable="false" />
+    <Property Name="StationID" Type="int" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Station">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Train">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="DirectionID" Type="int" Nullable="false" />
+    <Property Name="TypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrainDirection">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeOfTrain">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_RealArrivedTimeOfTrain_Station">
+    <End Role="Station" Type="Self.Station" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RealArrivedTimeOfTrain" Type="Self.RealArrivedTimeOfTrain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Station">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RealArrivedTimeOfTrain">
+        <PropertyRef Name="StationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RealArrivedTimeOfTrain_Train">
+    <End Role="Train" Type="Self.Train" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RealArrivedTimeOfTrain" Type="Self.RealArrivedTimeOfTrain" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Train">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RealArrivedTimeOfTrain">
+        <PropertyRef Name="TrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Train_TrainDirection">
+    <End Role="TrainDirection" Type="Self.TrainDirection" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Train" Type="Self.Train" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainDirection">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Train">
+        <PropertyRef Name="DirectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Train_TypeOfTrain">
+    <End Role="TypeOfTrain" Type="Self.TypeOfTrain" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Train" Type="Self.Train" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfTrain">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Train">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="trainYallaModelStoreContainer">
+    <EntitySet Name="RealArrivedTimeOfTrain" EntityType="Self.RealArrivedTimeOfTrain" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Station" EntityType="Self.Station" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Train" EntityType="Self.Train" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrainDirection" EntityType="Self.TrainDirection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeOfTrain" EntityType="Self.TypeOfTrain" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_RealArrivedTimeOfTrain_Station" Association="Self.FK_RealArrivedTimeOfTrain_Station">
+      <End Role="Station" EntitySet="Station" />
+      <End Role="RealArrivedTimeOfTrain" EntitySet="RealArrivedTimeOfTrain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RealArrivedTimeOfTrain_Train" Association="Self.FK_RealArrivedTimeOfTrain_Train">
+      <End Role="Train" EntitySet="Train" />
+      <End Role="RealArrivedTimeOfTrain" EntitySet="RealArrivedTimeOfTrain" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Train_TrainDirection" Association="Self.FK_Train_TrainDirection">
+      <End Role="TrainDirection" EntitySet="TrainDirection" />
+      <End Role="Train" EntitySet="Train" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Train_TypeOfTrain" Association="Self.FK_Train_TypeOfTrain">
+      <End Role="TypeOfTrain" EntitySet="TypeOfTrain" />
+      <End Role="Train" EntitySet="Train" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

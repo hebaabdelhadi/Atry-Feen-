@@ -1,0 +1,61 @@
+﻿@model AH.Models.TypeOfTrain
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DeleteType</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url('/Content/Image/18.jpg');
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class=" w-75 mx-auto mt-5 ">
+                <div class="col-lg-12">
+                    <div class="text-white text-center p-1" style="background-color:rgba(220, 20, 60, 0.664);border-radius: 10px;">
+                        <h2>Delete Train Type</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="text-danger w-100 border border-danger mx-auto p-3" style="border-radius: 10px; background-color:white;font-size:1.2rem;">
+
+                        <h2>Are you sure you want to delete this Type ? </h2>
+                        <br>
+                        @using (Html.BeginForm())
+                        {
+                            @Html.Label("Type ID : ")
+                            @Html.TextBoxFor(type => type.ID, new { @readonly = "readonly",@class="text-dark w-75" })<br><br>
+                            @Html.Label("Type Name : ")
+                            @Html.TextBoxFor(type => type.Name, new { @readonly = "readonly",@class="text-dark w-75" })<br><br>
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                            <a href="ShowTypes" class="btn btn-secondary">Back</a><br>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

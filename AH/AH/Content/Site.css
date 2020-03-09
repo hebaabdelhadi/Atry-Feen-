@@ -1,0 +1,58 @@
+﻿
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*body {
+        background-image: url('/Content/image/12.jpg');
+        background-repeat: no-repeat;
+        height: 40%;
+        background-position: center;
+        background-size: cover;
+    }
+
+    #rcorner {
+        border-radius: 25px;
+        border: 2px solid rgba(241, 235, 235, 0.2);
+        width: auto;
+        height: auto;
+        margin: auto;
+        margin-top: 100px;
+        background-color: rgba(241, 235, 235, 0.4);
+        background-size: cover;
+    }
+
+    #img {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        text-align: center;
+    }
+
+    #button {
+        background-color: crimson;
+        border-radius: 5px;
+        margin-left: 170px;
+        text-align: center;
+    }*/

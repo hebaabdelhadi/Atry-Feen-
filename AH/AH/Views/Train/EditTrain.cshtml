@@ -1,0 +1,66 @@
+﻿@model AH.Models.TrainTypeAndDirectionViewModel
+@{
+
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditTrain</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url('/Content/Image/339.jpg');
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class=" w-75 mx-auto mt-5 ">
+                <div class="col-lg-12">
+                    <div class="text-white text-center p-1" style="background-color:rgba(220, 20, 60, 0.664);border-radius: 10px;">
+                        <h2>Edit Train</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="text-danger w-100 border border-danger mx-auto p-3" style="border-radius: 10px; background-color:white;font-size:1.2rem;">
+
+                        @using (Html.BeginForm(new { action = "EditTrain", controller = "Train", TrainId = Model.Id }))
+                        {
+                            @Html.ValidationSummary()
+                            @Html.HiddenFor(model => model.Id)
+                            @Html.Label("Train Number : ")
+                            @Html.TextBoxFor(model => model.TrainNumber,new { @class="span4 text-dark w-50",@type = "number", @min = "0"})<br><br>
+                            @Html.Label("Train Direction : ")
+                            @Html.DropDownListFor(m => m.DirectionId, Model.Direction, "Please Select",new { @class="text-dark"})<br><br>
+                            @Html.Label("Train Type : ")
+                            @Html.DropDownListFor(m => m.TypeId, Model.Type, "Please Select",new { @class="text-dark"})<br><br>
+
+                            <input type="submit" value="Save" class="btn btn-success" />
+                            <input type="reset" value="Cancel" class="btn btn-primary" />
+                            <a href="ShowTrains" class="btn btn-secondary " style="font-size:1rem">Back</a>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

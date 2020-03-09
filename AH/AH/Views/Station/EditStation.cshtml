@@ -1,0 +1,61 @@
+﻿@model AH.Models.Station
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddStation</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url('/Content/Image/119.jpg');
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class=" w-75 mx-auto mt-5 ">
+                <div class="col-lg-12">
+                    <div class="text-white text-center p-1" style="background-color:rgba(220, 20, 60, 0.664);border-radius: 10px;">
+                        <h2>Add New Station </h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="w-100 border border-danger mx-auto p-3" style="border-radius: 10px; background-color:white;font-size:1.2rem;">
+
+                        <form action="AddStation" method="post">
+                            <fieldset class="text-danger p-3 pr-2" style="font-size:1.5rem;">
+                                <div>
+                                    <label for="StationName">Station Name:</label>
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "text-dark w-75"})
+                                </div>
+                                <br>
+                                <div>
+                                    <input type="submit" value="Save" class="btn btn-success" />&nbsp;
+                                    <input type="reset" value="Cancel" class="btn btn-primary" />&nbsp;
+                                    <a href="ShowStations" class="btn btn-secondary">Back</a><br>
+                                </div>
+                                <br>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

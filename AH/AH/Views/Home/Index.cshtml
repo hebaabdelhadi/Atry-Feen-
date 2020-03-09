@@ -1,0 +1,72 @@
+﻿<body style="background-image:url('/Content/image/12.jpg');
+            background-repeat: no-repeat;
+            height: 40%;
+            background-position: center;
+            background-size: cover;">
+
+    <br>
+    <div class="container" style="text-align: center;">
+        <div class="row" style="text-align: center;">
+            <div id="rcorner" class="col-lg-8" style="border-radius: 25px;
+            border: 2px solid rgba(241, 235, 235, 0.2);
+            width: 700 px;
+            height: auto;
+            margin: auto;
+            margin-top: 100px;
+            background-color: rgba(241, 235, 235, 0.4);
+            background-size: cover;">
+                <br>
+                <div class="row" style="margin-top: 30px;">
+                    <br />
+                    <div class="col-lg-4" style="margin-left: 75px;">
+                        <form action="/ActualPlace/Search">
+                            <div>
+                                <button class="btn btn-danger" style="height: 100px; width: 240px;" type="submit">  Search</button>
+
+                            </div>
+                        </form>
+                    </div>
+                    <br>
+                    <div class="col-lg-4" style="margin-left:75px;">
+                        <form action="/ActualPlace/Answer">
+                            <div>
+                                <button class="btn btn-danger" style="height: 100px; width: 240px;" type="submit"> Answer</button>
+
+
+                            </div>
+                        </form>
+                    </div>
+                    <br>
+                    <div class="col-lg-4" style="margin-left: 75px;margin-top: 20px;">
+                        <form action="/Train/ShowTrains">
+                            <div>
+                                @if (User.IsInRole("Admins"))
+                                {
+
+                                    <button class="btn btn-danger" style="height: 100px; width: 240px;" type="submit"> Trains</button>
+
+
+                                }
+                            </div>
+                        </form>
+                    </div>
+                    <br>
+                    <div class="col-lg-4" style="margin-left: 75px;margin-top: 20px;">
+                        <form action="/Station/ShowStations">
+                            <div>
+                                @if (User.IsInRole("Admins"))
+                                {
+                                    <button class="btn btn-danger" style="height: 100px; width: 240px;" type="submit"> Stations </button>
+
+
+
+                                }
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>

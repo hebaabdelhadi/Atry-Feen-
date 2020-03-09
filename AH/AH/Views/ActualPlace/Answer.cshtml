@@ -1,0 +1,71 @@
+﻿@model AH.Models.RealArrivedTimeOfTrain
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+          integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url('/Content/Image/224.jpg');
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        label {
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mt-5 w-50 border border-danger mx-auto" style="border-radius: 10px; background-color: rgba(228, 147, 147, 0.6);">
+                    <form action="Answer" method="post">
+                        <div class="form-group p-4 text-white" style="font-size:1.1rem">
+
+
+                            @Html.AntiForgeryToken()
+                            <label>Train Number:</label><br>
+                            @Html.DropDownList("TrainID", null, htmlAttributes: new { @class = "form-control w-75" })
+                            <br />
+                            <br />
+                            <label>Station:</label><br>  @Html.DropDownList("StationID", null, htmlAttributes: new { @class = "form-control w-75" })
+                            <br />
+                            <br />
+                            <label>Show Your Name and Phone: </label>  &nbsp;  &nbsp;
+                            @Html.CheckBoxFor(m => m.AllowPhone, new { style = "transform: scale(2);" })
+                        </div>
+                        <div class="pl-4">
+                            <button type="submit" class="btn btn-success"><i class="far fa-check-circle"></i></button>
+                            &nbsp;&nbsp; &nbsp;
+                            <button type="reset" class="btn btn-danger"><i class="far fa-times-circle"></i></button>
+                        </div>
+                        <br><br>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
